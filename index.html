@@ -1,8 +1,13 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Miro Store (Copy)</title>
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miro Store</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600&display=swap">
 <style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 /* Layout: black-and-white, bold and youthful. Full-bleed split hero (night panel + navy shirt photo), gold ticker, product rows on home, mosaic on Alaabta, tailor's order slip that fills live on Qabso, oversized phone number on Xiriir. */
 :root{
   --bg:#F5F6F8;
@@ -95,6 +100,23 @@ a{color:inherit}
 .step h3{font-size:1.6rem;font-weight:800;margin:12px 0 8px;text-transform:uppercase}
 .step p{color:var(--muted);max-width:30ch}
 
+/* founder story (home) */
+.band.story{background:var(--night);color:var(--on-night);border-top:0}
+.story .eyebrow{color:var(--gold)}
+.story-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,88px);align-items:start}
+.story-intro{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);min-width:0}
+.story-intro h2{font-size:clamp(2.2rem,5.4vw,4.2rem);font-weight:800;text-transform:uppercase;line-height:.98;margin:12px 0 24px}
+.story-intro h2 em{font-style:normal;color:var(--gold)}
+.pull{font-family:var(--font-display);font-weight:600;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.28;letter-spacing:-.01em;border-left:4px solid var(--gold);padding-left:18px;margin:0 0 28px;max-width:30ch}
+.sign{display:flex;align-items:center;gap:14px}
+.sign img{height:64px;width:auto}
+.sign b{display:block;font-family:var(--font-display);font-size:1.2rem;font-weight:800}
+.sign span{color:var(--night-muted);font-size:.92rem}
+.chapters{border-top:1px solid #2A3047;min-width:0}
+.chapter{padding:24px 0;border-bottom:1px solid #2A3047}
+.chapter h3{font-size:1.5rem;font-weight:800;text-transform:uppercase;margin:8px 0 10px}
+.chapter p{color:#C7CCD9;max-width:58ch}
+
 /* product rows (home) */
 .rows{border-bottom:1px solid var(--line)}
 .prow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:12px 32px;align-items:center;padding:24px 0;border-top:1px solid var(--line)}
@@ -102,9 +124,9 @@ a{color:inherit}
 .prow p{color:var(--muted);max-width:44ch}
 
 /* mosaic (alaabta) */
-.mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mosaic{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .pcard{position:relative;background:var(--night);color:var(--on-night);padding:clamp(20px,3vw,32px);min-height:260px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden;min-width:0;border-radius:2px}
-.pcard.big{min-height:260px;justify-content:flex-end}
+.pcard.big{min-height:320px;justify-content:flex-end}
 .pcard.big>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pcard.big::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,18,.92) 8%,rgba(10,12,18,0) 62%)}
 .pcard>*:not(img){position:relative;z-index:1}
@@ -128,6 +150,15 @@ input,select,textarea{width:100%;min-height:50px;padding:11px 14px;font:400 1rem
 textarea{min-height:88px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--ink)}
 input[aria-invalid="true"]{border-color:var(--maroon)}
+.choice{border:0;padding:0;margin:0;min-width:0}
+.choice legend{font-weight:600;font-size:.9rem;padding:0;margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{position:relative;display:block}
+.opt input{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;border:0;background:none;opacity:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:64px;min-height:50px;padding:0 18px;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;font-weight:700}
+.opt input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opt input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.dot{width:16px;height:16px;border-radius:50%;border:1px solid #8D93A1;flex:none}
 .slip{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);background:var(--night);color:var(--on-night);padding:26px 24px 22px;border-radius:2px;min-width:0}
 .slip-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px dashed #3A4056;padding-bottom:14px;margin-bottom:6px}
 .slip-top b{font-family:var(--font-display);font-weight:800;font-size:1.3rem;text-transform:uppercase}
@@ -167,6 +198,8 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
   .mosaic{grid-template-columns:minmax(0,1fr)}
   .pcard.big{min-height:240px}
   .split,.contact{grid-template-columns:minmax(0,1fr)}
+  .story-grid{grid-template-columns:minmax(0,1fr)}
+  .story-intro{position:static}
   .slip{position:static}
 }
 @media (max-width:560px){
@@ -183,6 +216,8 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 }
 </style>
 
+</head>
+<body>
 <header class="site-head">
   <div class="wrap head-row">
     <a class="brand" href="#hore" data-go="hore" aria-label="Miro Store, bogga hore">Miro<span>.</span></a>
@@ -200,9 +235,9 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 <section data-view="hore">
   <div class="hero on-night">
     <div class="hero-copy">
-      <p class="eyebrow">Miro Store · Dhar la tolo</p>
-      <h1>Dhar loogu tolay <em>cabbirkaaga.</em></h1>
-      <p class="lead">Dooro nooca dharka, na sii cabbirkaaga, oo Miro Store ayaa kuu tolaysa. Marka uu diyaar noqdo, waan kula soo xiriiraynaa.</p>
+      <p class="eyebrow">Miro Store · Shaar linen</p>
+      <h1>Shaar linen <em>asal ah.</em></h1>
+      <p class="lead">Miro Store waxay bixisaa shaarka linen-ka asalka ah oo kaliya, gacanta lagu tolo. Dooro cabbirkaaga iyo midabka, marka uu diyaar noqdo waan kula soo xiriiraynaa.</p>
       <div class="cta">
         <a class="btn btn-gold" href="#qabso" data-go="qabso">Qabso hadda</a>
         <a class="btn btn-night-line" href="#alaabta" data-go="alaabta">Eeg alaabta</a>
@@ -223,18 +258,52 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 
   <div class="band"><div class="wrap">
     <div class="band-head">
-      <div><p class="eyebrow">Alaabta</p><h2>Waxa aan kuu tolno</h2></div>
+      <div><p class="eyebrow">Alaabta</p><h2>Shaarka linen-ka</h2></div>
       <a class="btn btn-line btn-sm" href="#alaabta" data-go="alaabta">Dhammaan alaabta</a>
     </div>
     <div class="rows" id="homeRows"></div>
   </div></div>
 
+  <div class="band story"><div class="wrap story-grid">
+    <div class="story-intro">
+      <p class="eyebrow">Sheekada Aasaasaha</p>
+      <h2>Sida uu ku dhashay <em>Miro Store</em></h2>
+      <p class="pull">“Magacu ma aha oo kaliya calaamad ganacsi. Waa ballanqaad tayo iyo xarrago leh.”</p>
+      <div class="sign">
+        <img class="ribbon-copy" alt="">
+        <div><b></b><span>Owner &amp; CEO, Miro Store</span></div>
+      </div>
+    </div>
+    <div class="chapters">
+      <div class="chapter">
+        <p class="eyebrow">Bilowga iyo aragtida</p>
+        <h3>Indho-indheyn fudud</h3>
+        <p>Wax walba waxay ka bilaabmeen indho-indheyn fudud. Waxaan aragnay baahida ay dhalinyaradu u qabaan dhar soo jiidasho leh oo ku habboon casriga. Halkaas ayaa ka dhalatay fikradda in la abuuro brand ka duwan suuqa caadiga ah: sumad leh aqoonsi iyo tayo gaar ah, oo magaceedu yahay MIRO.</p>
+      </div>
+      <div class="chapter">
+        <p class="eyebrow">Micnaha magaca</p>
+        <h3>Miro waa midho</h3>
+        <p>Sida magaciisu sheegayo, safarkayagu wuxuu ka bilaabmay aragti ka timid deegaanka dhexdiisa, annagoo doonayna inaan riyadaas u beddelno midho dhab ah. Ma ku koobnayn inaan dhar iibino oo kaliya. Waxaan dhisaynaa sumad taagan oo ka muuqata ganacsiyada kale, kuna jirta quluubta macaamiisha.</p>
+      </div>
+      <div class="chapter">
+        <p class="eyebrow">Tayada iyo adeegga</p>
+        <h3>Gacanta lagu tolo</h3>
+        <p>Miro Store wuxuu caan ku yahay shaararka linen-ka asalka ah ee ragga, gacanta lagu tolo, raaxada iyo bilicda isku daraya. Waa shaarka kaliya ee aan bixino, waxaana si gaar ah kuugu diyaarinaa adiga.</p>
+      </div>
+      <div class="chapter">
+        <p class="eyebrow">Hiigsiga iyo mustaqbalka</p>
+        <h3>Soomaaliya oo dhan</h3>
+        <p>Hadafkayagu ma aha mid ku eg halka aan maanta joogno. Laga bilaabo riyadii Deganka ka bilaabatay, waxaan qorsheynaynaa inaan tartiib tartiib ugu fidno Soomaaliya oo dhan, ilaa Miro Store uu noqdo brand si weyn looga yaqaan dalka oo idil.</p>
+      </div>
+    </div>
+  </div></div>
+
   <div class="band"><div class="wrap">
     <div class="band-head"><div><p class="eyebrow">Sida ay u shaqeyso</p><h2>Saddex tillaabo</h2></div></div>
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Dooro</h3><p>Fiiri noocyada dharka aan tolno oo dooro waxa kuu qalma.</p></div>
-      <div class="step"><div class="n">2</div><h3>Cabbir</h3><p>Buuxi warqadda dalabka: magacaaga, cabbirkaaga iyo midabka.</p></div>
-      <div class="step"><div class="n">3</div><h3>Qaado</h3><p>Marka dharka la dhammeeyo, Miro Store ayaa kula soo xiriiraysa.</p></div>
+      <div class="step"><div class="n">1</div><h3>Dooro</h3><p>Fiiri shaarka linen-ka asalka ah ee Miro Store.</p></div>
+      <div class="step"><div class="n">2</div><h3>Cabbir</h3><p>Buuxi warqadda dalabka: magacaaga, cabbirka (S ilaa XXL) iyo midabka.</p></div>
+      <div class="step"><div class="n">3</div><h3>Qaado</h3><p>Marka shaarka la dhammeeyo, Miro Store ayaa kula soo xiriiraysa.</p></div>
     </div>
   </div></div>
 </section>
@@ -242,8 +311,8 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 <!-- ALAABTA -->
 <section data-view="alaabta" hidden>
   <div class="wrap band">
-    <div class="band-head"><div><p class="eyebrow">Alaabta</p><h2>Waxa aan kuu tolno</h2></div></div>
-    <p class="notice">Dhar kasta waa lagu tolaa cabbirkaaga. Sawirro iyo qiimayaal dhab ah ayaa lagu dari doonaa.</p>
+    <div class="band-head"><div><p class="eyebrow">Alaabta</p><h2>Shaarka linen-ka</h2></div></div>
+    <p class="notice">Miro Store waxay bixisaa shaarka linen-ka asalka ah oo kaliya. Sawirro iyo qiimayaal dhab ah ayaa lagu dari doonaa.</p>
     <div class="mosaic" id="mosaic"></div>
   </div>
 </section>
@@ -257,16 +326,11 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
         <h3>Adiga</h3>
         <div class="field"><label for="f-name">Magacaaga</label><input id="f-name" autocomplete="name"></div>
         <div class="field"><label for="f-phone">Taleefankaaga</label><input id="f-phone" inputmode="tel" autocomplete="tel" placeholder="+252 …"></div>
-        <h3>Dharka</h3>
+        <h3>Shaarka</h3>
         <div class="field"><label for="f-item">Nooca</label><select id="f-item"></select></div>
-        <div class="field"><label for="f-color">Midabka</label><input id="f-color" placeholder="Tusaale: buluug madow"></div>
-        <div class="field"><label for="f-size">Cabbirka</label>
-          <select id="f-size"><option>Cabbir gaar ah</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
+        <fieldset class="field full choice"><legend>Cabbirka</legend><div class="opts"><label class="opt"><input type="radio" name="size" value="S"><span>S</span></label><label class="opt"><input type="radio" name="size" value="M"><span>M</span></label><label class="opt"><input type="radio" name="size" value="L"><span>L</span></label><label class="opt"><input type="radio" name="size" value="XL"><span>XL</span></label><label class="opt"><input type="radio" name="size" value="XXL"><span>XXL</span></label></div></fieldset>
+        <fieldset class="field full choice"><legend>Midabka</legend><div class="opts"><label class="opt"><input type="radio" name="color" value="Buluug madow"><span><i class="dot" style="background:#1B2545"></i>Buluug madow</span></label><label class="opt"><input type="radio" name="color" value="Madow"><span><i class="dot" style="background:#0A0C12"></i>Madow</span></label><label class="opt"><input type="radio" name="color" value="Cad"><span><i class="dot" style="background:#F4F4F2"></i>Cad</span></label><label class="opt"><input type="radio" name="color" value="Cirro"><span><i class="dot" style="background:#8D93A1"></i>Cirro</span></label><label class="opt"><input type="radio" name="color" value="Buluug"><span><i class="dot" style="background:#2F55A4"></i>Buluug</span></label></div></fieldset>
         <div class="field"><label for="f-qty">Tirada</label><input id="f-qty" type="number" min="1" max="20" value="1"></div>
-        <h3>Cabbirrada jirka <small>cm · ikhtiyaari</small></h3>
-        <div class="field third"><label for="f-chest">Laabta</label><input id="f-chest" type="number" inputmode="decimal" min="0" placeholder="100"></div>
-        <div class="field third"><label for="f-waist">Dhexda</label><input id="f-waist" type="number" inputmode="decimal" min="0" placeholder="86"></div>
-        <div class="field third"><label for="f-length">Dhererka</label><input id="f-length" type="number" inputmode="decimal" min="0" placeholder="75"></div>
         <div class="field full"><label for="f-note">Fiiro dheeri ah</label><textarea id="f-note" placeholder="Wax kale oo aad rabto in aan ogaano"></textarea></div>
       </form>
 
@@ -300,7 +364,7 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
       <div class="links">
         <a href="https://www.tiktok.com/@miro.store.so?_r=1&amp;_t=ZS-98UW095jb76" target="_blank" rel="noopener"><div><b>TikTok</b><span>@miro.store.so</span></div><i aria-hidden="true">&#8599;</i></a>
         <a href="https://www.instagram.com/miro.store.so?igsh=dWpkdTE1eGJ3djB2" target="_blank" rel="noopener"><div><b>Instagram</b><span>@miro.store.so</span></div><i aria-hidden="true">&#8599;</i></a>
-        <a href="#qabso" data-go="qabso"><div><b>Qabso dhar</b><span>Buuxi warqadda dalabka</span></div><i aria-hidden="true">&#8594;</i></a>
+        <a href="#qabso" data-go="qabso"><div><b>Qabso shaar</b><span>Buuxi warqadda dalabka</span></div><i aria-hidden="true">&#8594;</i></a>
       </div>
     </div>
   </div>
@@ -323,14 +387,11 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 (function(){
   var SHIRT = document.querySelector('img.shirt').src;
   var PRODUCTS = [
-    {name:'Shaar rasmi ah',       desc:'Shaar rasmi ah oo cabbirkaaga loogu tolo, shaqada iyo munaasabadaha.', glyph:'Sh', photo:true},
-    {name:'Tii-shaati',           desc:'Tii-shaati fudud oo cabbirkaaga loogu tolo.', glyph:'T'},
-    {name:'Surwaal',              desc:'Surwaal rasmi ah ama caadi ah oo cabbirkaaga loogu tolo.', glyph:'Su'},
-    {name:'Waxyaabo dheeraad ah', desc:'Waxyaabaha dharka la socda.', glyph:'+'}
+    {name:'Shaar linen', desc:'Shaar linen asal ah oo ragga loogu tolo gacanta, raaxada iyo bilicda isku daraya.', glyph:'Sh', photo:true}
   ];
 
   /* ticker */
-  var words = ['Cabbirkaaga','Tolid gaar ah','Shaar','Surwaal','Tii-shaati','Miro Store'];
+  var words = ['Linen asal ah','Shaar','Tolid gaar ah','Cabbirkaaga','Miro Store'];
   var one = words.map(function(w){return '<span>'+w+'</span>';}).join('');
   document.getElementById('ticker').innerHTML = one+one+one+one;
 
@@ -371,25 +432,18 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
   var $ = function(id){return document.getElementById(id);};
   var current = '';
   function update(){
+    var sz=document.querySelector('input[name="size"]:checked'), cl=document.querySelector('input[name="color"]:checked');
     var v = {
       name:$('f-name').value.trim(), phone:$('f-phone').value.trim(), item:sel.value,
-      size:$('f-size').value, color:$('f-color').value.trim(), qty:$('f-qty').value||'1',
-      chest:$('f-chest').value.trim(), waist:$('f-waist').value.trim(), length:$('f-length').value.trim(),
-      note:$('f-note').value.trim()
+      size:sz?sz.value:'', color:cl?cl.value:'', qty:$('f-qty').value||'1', note:$('f-note').value.trim()
     };
-    var rows = [
-      ['Magac',v.name],['Taleefan',v.phone],['Dharka',v.item],['Cabbirka',v.size],['Midabka',v.color],['Tirada',v.qty],
-      ['Laabta',v.chest&&v.chest+' cm'],['Dhexda',v.waist&&v.waist+' cm'],['Dhererka',v.length&&v.length+' cm']
-    ];
+    var rows = [['Magac',v.name],['Taleefan',v.phone],['Shaarka',v.item],['Cabbirka',v.size],['Midabka',v.color],['Tirada',v.qty]];
     $('slipList').innerHTML = rows.map(function(r){
       return '<dt>'+r[0]+'</dt><dd'+(r[1]?'':' class="empty"')+'>'+(r[1]?esc(r[1]):'—')+'</dd>';
     }).join('');
-    var lines = ['Salaan, waxaan rabaa inaan dhar ka dalbado Miro Store.','',
-      'Magac: '+(v.name||'—'),'Taleefan: '+(v.phone||'—'),'Dharka: '+v.item,'Cabbirka: '+v.size,
-      'Midabka: '+(v.color||'Ma dooran'),'Tirada: '+v.qty];
-    if(v.chest) lines.push('Laabta: '+v.chest+' cm');
-    if(v.waist) lines.push('Dhexda: '+v.waist+' cm');
-    if(v.length) lines.push('Dhererka: '+v.length+' cm');
+    var lines = ['Salaan, waxaan rabaa inaan shaar linen ah ka dalbado Miro Store.','',
+      'Magac: '+(v.name||'—'),'Taleefan: '+(v.phone||'—'),'Shaarka: '+v.item,'Cabbirka: '+(v.size||'—'),
+      'Midabka: '+(v.color||'—'),'Tirada: '+v.qty];
     if(v.note) lines.push('Fiiro: '+v.note);
     current = lines.join('\n');
     $('waLink').href = 'https://wa.me/252770714732?text='+encodeURIComponent(current);
@@ -400,11 +454,17 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
   $('bookForm').addEventListener('change', update);
   $('bookForm').addEventListener('submit', function(e){ e.preventDefault(); });
   $('waLink').addEventListener('click', function(e){
-    var v = update();
-    var bad = !v.name ? $('f-name') : (!v.phone ? $('f-phone') : null);
-    if(bad){
-      e.preventDefault(); bad.setAttribute('aria-invalid','true'); bad.focus();
-      $('err').textContent = 'Fadlan geli '+(bad===$('f-name')?'magacaaga':'taleefankaaga')+' marka hore.';
+    var v = update(), msg='', focusEl=null;
+    if(!v.name){ msg='magacaaga'; focusEl=$('f-name'); }
+    else if(!v.phone){ msg='taleefankaaga'; focusEl=$('f-phone'); }
+    else if(!v.size){ msg='cabbirka'; focusEl=document.querySelector('input[name="size"]'); }
+    else if(!v.color){ msg='midabka'; focusEl=document.querySelector('input[name="color"]'); }
+    if(msg){
+      e.preventDefault();
+      if(focusEl.id) focusEl.setAttribute('aria-invalid','true');
+      focusEl.focus();
+      $('err').textContent = 'Fadlan dooro '+msg+' marka hore.';
+      if(msg==='magacaaga'||msg==='taleefankaaga') $('err').textContent = 'Fadlan geli '+msg+' marka hore.';
     }
   });
 
@@ -424,7 +484,9 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 
   update();
   show(location.hash.replace('#','') || 'hore');
+  var rc=document.querySelector('img.ribbon'),rs=document.querySelector('img.ribbon-copy'); if(rc&&rs) rs.src=rc.src;
 })();
 </script>
 
-</body></html>
+</body>
+</html>
