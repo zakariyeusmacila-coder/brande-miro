@@ -117,6 +117,20 @@ a{color:inherit}
 .chapter h3{font-size:1.5rem;font-weight:800;text-transform:uppercase;margin:8px 0 10px}
 .chapter p{color:#C7CCD9;max-width:58ch}
 
+/* promo + coming soon */
+.promo{margin-top:clamp(20px,4vw,36px);background:var(--gold);color:var(--on-gold);padding:clamp(20px,3.4vw,34px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;border-radius:2px}
+.promo>div{min-width:0;flex:1 1 320px}
+.promo-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.3rem,3.4vw,2.2rem);line-height:1.1;text-transform:uppercase;text-wrap:balance}
+.promo-sub{margin-top:8px;font-size:1.1rem;font-weight:600}
+.btn-dark{background:var(--night);color:var(--on-night)}
+.btn-dark:hover{transform:translateY(-2px)}
+.pcard.soon{min-height:190px;background:transparent;color:var(--ink);border:2px dashed var(--ink)}
+.pcard.soon p{color:var(--muted)}
+.pcard.soon .pill{border-color:var(--gold-text);color:var(--gold-text)}
+.pcard.soon .glyph{-webkit-text-stroke:1.5px var(--ink)}
+.prow.soon h3{color:var(--muted)}
+.prow .pill{margin:0;white-space:nowrap}
+
 /* product rows (home) */
 .rows{border-bottom:1px solid var(--line)}
 .prow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) auto;gap:12px 32px;align-items:center;padding:24px 0;border-top:1px solid var(--line)}
@@ -262,6 +276,7 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
       <a class="btn btn-line btn-sm" href="#alaabta" data-go="alaabta">Dhammaan alaabta</a>
     </div>
     <div class="rows" id="homeRows"></div>
+    <div data-promo></div>
   </div></div>
 
   <div class="band story"><div class="wrap story-grid">
@@ -314,6 +329,7 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
     <div class="band-head"><div><p class="eyebrow">Alaabta</p><h2>Shaarka linen-ka</h2></div></div>
     <p class="notice">Miro Store waxay bixisaa shaarka linen-ka asalka ah oo kaliya. Sawirro iyo qiimayaal dhab ah ayaa lagu dari doonaa.</p>
     <div class="mosaic" id="mosaic"></div>
+    <div data-promo></div>
   </div>
 </section>
 
@@ -484,6 +500,11 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
 
   update();
   show(location.hash.replace('#','') || 'hore');
+  document.getElementById('homeRows').insertAdjacentHTML('beforeend','<div class="prow soon"><h3>Shaararka kale</h3><p>Shaararka kale ee Miro Store ayaan dhawaan la imaan doonaa.</p><span class="pill">Dhawaan</span></div>');
+  document.getElementById('mosaic').insertAdjacentHTML('beforeend','<article class="pcard soon"><span class="glyph" aria-hidden="true">+</span><div><span class="pill">Dhawaan</span><h3>Shaararka kale</h3><p>Shaararka kale ee Miro Store ayaan dhawaan la imaan doonaa.</p></div></article>');
+  document.querySelectorAll('[data-promo]').forEach(function(el){
+    el.innerHTML='<div class="promo"><div><p class="promo-title">\uD83D\uDEA8 FURSAD GAAR AH - HALKA QOF EE UGU HOREEYA! \uD83D\uDEA8</p><p class="promo-sub">Waxay helayaan <b>5% Discount</b> \uD83C\uDFC3\u200D\u2642\uFE0F\uD83D\uDCA8\uD83D\uDCB8</p></div><a class="btn btn-dark" href="#qabso" data-go="qabso">Qabso hadda</a></div>';
+  });
   var rc=document.querySelector('img.ribbon'),rs=document.querySelector('img.ribbon-copy'); if(rc&&rs) rs.src=rc.src;
 })();
 </script>
