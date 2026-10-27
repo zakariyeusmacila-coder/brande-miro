@@ -117,6 +117,21 @@ a{color:inherit}
 .chapter h3{font-size:1.5rem;font-weight:800;text-transform:uppercase;margin:8px 0 10px}
 .chapter p{color:#C7CCD9;max-width:58ch}
 
+/* comparison */
+.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.vs-col{background:var(--surface);border:1.5px solid var(--line);padding:clamp(20px,3vw,32px);border-radius:2px;min-width:0}
+.vs-col h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-transform:uppercase;margin-bottom:12px}
+.vs-col dl{margin:0}
+.vs-col dt{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:16px}
+.vs-col dd{margin:4px 0 0;padding-bottom:16px;border-bottom:1px solid var(--line);font-family:var(--font-display);font-weight:700;font-size:clamp(1.15rem,2.4vw,1.5rem);line-height:1.2;overflow-wrap:anywhere}
+.vs-col dd:last-child{border-bottom:0;padding-bottom:0}
+.vs-col:not(.miro) dd{color:var(--muted);font-weight:600}
+.vs-col.miro{background:var(--night);color:var(--on-night);border:2px solid var(--gold)}
+.vs-col.miro dt{color:var(--gold)}
+.vs-col.miro dd{border-bottom-color:#2A3047}
+.vs-col.miro h3{color:var(--gold)}
+@media (max-width:700px){.vs{grid-template-columns:minmax(0,1fr)}}
+
 /* promo + coming soon */
 .promo{margin-top:clamp(20px,4vw,36px);background:var(--gold);color:var(--on-gold);padding:clamp(20px,3.4vw,34px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;border-radius:2px}
 .promo>div{min-width:0;flex:1 1 320px}
@@ -277,6 +292,15 @@ footer{background:var(--night);color:var(--night-muted);padding-block:28px;font-
     </div>
     <div class="rows" id="homeRows"></div>
     <div data-promo></div>
+  </div></div>
+
+  <div class="band"><div class="wrap">
+    <div class="band-head"><div><p class="eyebrow">Isbarbardhig</p><h2>Maxay Miro u kala duwan tahay?</h2></div></div>
+    <div class="vs">
+      <div class="vs-col"><h3>Shaarka caadi ah</h3><dl><dt>Maaddada</dt><dd>Waa laga yaabaa inay isku-dhafan tahay</dd><dt>Tolidda</dt><dd>Warshad, tiro badan</dd><dt>Cabbirka</dt><dd>Cabbir caadi ah</dd><dt>Sumadda</dt><dd>Aan la aqoon</dd></dl></div>
+      <div class="vs-col miro"><h3>Miro Store</h3><dl><dt>Maaddada</dt><dd>Linen 100% asal ah</dd><dt>Tolidda</dt><dd>Gacanta lagu tolo</dd><dt>Cabbirka</dt><dd>S, M, L, XL, XXL</dd><dt>Sumadda</dt><dd>Miro Store, TikTok iyo Instagram</dd></dl></div>
+    </div>
+    <p class="notice" style="margin:24px 0 0">Sawirro dhow oo tolka iyo maaddada ah, iyo sawirada macaamiisha, ayaa halkan lagu dari doonaa.</p>
   </div></div>
 
   <div class="band story"><div class="wrap story-grid">
